@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>¿Quién eres de Rayan?</h2>
+        <h2>Página de Rayan</h2>
         <form id="rayanForm">
             <label for="nombre">¿Cuál es tu nombre?</label>
             <input type="text" id="nombre" name="nombre" required>
@@ -31,7 +31,11 @@
             const nombre = document.getElementById('nombre').value.trim();
             const relacion = document.getElementById('relacion').value.trim();
             if(nombre && relacion) {
-                document.getElementById('respuesta').textContent = `Te quiero mucho, ${nombre} (${relacion})`;
+                // Guarda los datos en localStorage para usarlos en la otra página
+                localStorage.setItem('nombre', nombre);
+                localStorage.setItem('relacion', relacion);
+                // Redirige a la página del corazón
+                window.location.href = 'corazon.html';
             }
         });
     </script>
