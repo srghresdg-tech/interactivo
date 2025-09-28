@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Interactiva de Rayan</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f0f4f8; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }
+        .container { background: #fff; padding: 2rem 2.5rem; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+        label { display: block; margin-top: 1rem; }
+        input { margin-top: 0.5rem; padding: 0.5rem; width: 100%; border-radius: 6px; border: 1px solid #ccc; }
+        button { margin-top: 1.5rem; padding: 0.7rem 1.5rem; border: none; border-radius: 6px; background: #4f8cff; color: #fff; font-size: 1rem; cursor: pointer; }
+        .respuesta { margin-top: 2rem; font-size: 1.2rem; color: #2d6a4f; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>¿Quién eres de Rayan?</h2>
+        <form id="rayanForm">
+            <label for="nombre">¿Cuál es tu nombre?</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="relacion">¿Qué eres de Rayan?</label>
+            <input type="text" id="relacion" name="relacion" required>
+            <button type="submit">Enviar</button>
+        </form>
+        <div class="respuesta" id="respuesta"></div>
+    </div>
+    <script>
+        document.getElementById('rayanForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value.trim();
+            const relacion = document.getElementById('relacion').value.trim();
+            if(nombre && relacion) {
+                document.getElementById('respuesta').textContent = `Te quiero mucho, ${nombre} (${relacion})`;
+            }
+        });
+    </script>
+</body>
+</html>
